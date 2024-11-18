@@ -3,6 +3,7 @@ import { useState } from "react"
 import { Title } from "./components/Title"
 import { Parapgrahe } from "./components/Paragraphe"
 import { Image } from "./components/Image"
+import { Parent } from "./components/Parent"
 
 export const App = () => {
     const [activated, setActivated] = useState(false);
@@ -10,9 +11,10 @@ export const App = () => {
     return <>
         <Title activated={activated} />
         <Parapgrahe activated={activated} />
-        <Image activated={activated} />
+        <Parent activated={activated} />
         <div>
-            <button onClick={() => setActivated(!activated)}>{activated ? "Désactiver" : "Activer"}</button>
+            <Image activated={activated} />
         </div>
+        <button onClick={() => setActivated(!activated)}>{activated ? "Désactiver" : "Activer"}</button>
     </>
 }
