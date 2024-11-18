@@ -3,8 +3,10 @@ import { useEffect, useState } from "react"
 export const MagicCounter = () => {
     const [counter, setCounter] = useState(0);
 
+    const counterTest = counter !== 0 && !(counter % 5);
+
     const magicStyle = {
-        backgroundColor: counter !== 0 && !(counter % 5) ? '#D4F1F4' : '#FDEDEC',
+        backgroundColor: counterTest ? '#D4F1F4' : '#FDEDEC',
         width: "15rem",
         textAlign: "center",
         borderRadius: '10px',
@@ -23,7 +25,7 @@ export const MagicCounter = () => {
         </div>
         <button onClick={() => setCounter(0)}>Reset</button>
         {
-            counter !== 0 && !(counter % 5) && <p>✨ Nombre magique atteint ! ✨</p>
+            counterTest && <p>✨ Nombre magique atteint ! ✨</p>
         }
     </>
 }
