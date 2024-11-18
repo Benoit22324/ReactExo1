@@ -4,6 +4,7 @@ import { Title } from "./components/Title"
 import { Parapgrahe } from "./components/Paragraphe"
 import { Image } from "./components/Image"
 import { Parent } from "./components/Parent"
+import { MagicCounter } from "./components/MagicCounter"
 
 export const App = () => {
     const [activated, setActivated] = useState(false);
@@ -16,5 +17,6 @@ export const App = () => {
             <Image activated={activated} />
         </div>
         <button onClick={() => setActivated(!activated)}>{activated ? "Désactiver" : "Activer"}</button>
+        <MagicCounter />
     </>
 }
