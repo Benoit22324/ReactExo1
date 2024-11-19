@@ -20,7 +20,7 @@ export const Users = () => {
         {
             loading ? <p>Chargement des utilisateurs</p>
                 : <ul>
-                    {usersList.map(user => <li>{user.email}</li>)}
+                    {usersList.map(user => <li key={user.id}>{user.email}</li>)}
                 </ul>
         }
     </>
