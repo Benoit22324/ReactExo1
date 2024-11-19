@@ -19,11 +19,11 @@ export const ResponsiveBackground = () => {
     useEffect(() => {
         handleResponsive();
 
-        // window.addEventListener('resize', handleResponsive);
+        window.addEventListener('resize', handleResponsive);
 
-        // return () => {
-        //     window.removeEventListener('resize', handleResponsive);
-        // }
+        return () => {
+            window.removeEventListener('resize', handleResponsive);
+        }
     }, []);
 
     return <>
