@@ -29,6 +29,6 @@ export const ResponsiveBackground = () => {
     }, [])
 
     return <>
-        <p style={customResponsiveStyle}>La taille actuelle est de {windowWidth}</p>
+        <p style={customResponsiveStyle}>La taille actuelle est de {windowWidth}px</p>
     </>
 }
