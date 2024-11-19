@@ -6,9 +6,13 @@ export const Users = () => {
     const [loading, setLoading] = useState(true);
 
     const fetchUsers = async () => {
-        const response = await axios.get("https://jsonplaceholder.org/users");
-        setUsersList(response.data);
-        setLoading(false);
+        try {
+            const response = await axios.get("https://jsonplaceholder.org/users");
+            setUsersList(response.data);
+            setLoading(false);
+        } catch (err) {
+            console.log(err);
+        }
     }
 
     useEffect(() => {
