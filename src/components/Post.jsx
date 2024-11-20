@@ -4,11 +4,13 @@ import { useParams } from "react-router-dom"
 
 export const Post = () => {
     const [postData, setPostData] = useState({});
+    const [loading, setLoading] = useState(true);
     const { id } = useParams();
 
     const fetchPostData = async () => {
         const response = await axios.get(`https://jsonplaceholder.org/posts/${id}`);
         setPostData(response.data);
+        setLoading(false);
     }
 
     useEffect(() => {
@@ -16,7 +18,15 @@ export const Post = () => {
     }, [])
 
     return <>
-        <h1>{postData.title}</h1>
-        <p>{postData.content}</p>
+        {loading ? <p>Récupération en cours...</p>
+        : <PostScreen title={postData.title} content={postData.content} />
+        }
+    </>
+}
+
+const PostScreen = ({title, content}) => {
+    return <>
+        <h1>{title}</h1>
+        <p>{content}</p>
     </>
 }
