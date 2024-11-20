@@ -7,9 +7,13 @@ export const Posts = () => {
     const [loading, setLoading] = useState(true);
 
     const fetchPosts = async () => {
-        const response = await axios.get("https://jsonplaceholder.org/posts");
-        setPostsList(response.data);
-        setLoading(false);
+        try {
+            const response = await axios.get("https://jsonplaceholder.org/posts");
+            setPostsList(response.data);
+            setLoading(false);
+        } catch (err) {
+            console.log(err);
+        }
     }
 
     useEffect(() => {

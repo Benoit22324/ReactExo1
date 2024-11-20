@@ -8,9 +8,13 @@ export const Post = () => {
     const { id } = useParams();
 
     const fetchPostData = async () => {
-        const response = await axios.get(`https://jsonplaceholder.org/posts/${id}`);
-        setPostData(response.data);
-        setLoading(false);
+        try {
+            const response = await axios.get(`https://jsonplaceholder.org/posts/${id}`);
+            setPostData(response.data);
+            setLoading(false);
+        } catch (err) {
+            console.log(err);
+        }
     }
 
     useEffect(() => {
